@@ -1,0 +1,21 @@
+{
+  "name": "OSR",
+  "version": "0.0.1",
+  "authors": [
+    "Sunny Li"
+  ],
+  "description": "CSC318 Project Prototype",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-apps": "~1.1.0"
+  }
+}
