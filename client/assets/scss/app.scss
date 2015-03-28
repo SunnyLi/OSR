@@ -1,2 +1,73 @@
 @import "settings";
 @import "foundation";
+
+.menu-group {
+  background-color: white;
+
+  & .menu-bar > li > a {
+    color: gray;
+  }
+
+  & strong {
+    color: green;
+  }
+
+  .menu-group-right a {
+    margin: auto 2em;
+    text-decoration: none;
+    color: gray;
+  }
+  
+}
+
+body > .grid-frame > .grid-block {
+  margin-top: 2em;
+}
+
+#sidebar ul {
+  list-style: none;
+  
+  & a {
+    color: $dark-color;
+    
+    & > .iconic * {
+      fill: $dark-color;
+    }
+  }
+
+  & > li {
+    line-height: 2em;
+    
+    &.category-header {
+      color: gray;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.round-corner {
+  border-radius: 3em;
+}
+
+.label.website-url {
+  background-color: $body-background;
+  color: $dark-color;
+}
+
+.label.tag {
+  background-color: white;
+  color: $dark-color;
+  border: 1px solid gray;
+}
+
+.home {
+  #most-viewed {
+    color: green;
+    font-weight: 600;
+  }
+  
+  .stars-grid {
+    padding-top: 3em;
+  }
+}

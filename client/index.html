@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation for Apps</title>
+    <title>OSR</title>
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
     <script src="/assets/js/foundation.js"></script>
     <script src="/assets/js/templates.js"></script>
@@ -13,11 +13,99 @@
   <body>
     <div class="grid-frame vertical">
       <div class="grid-content shrink" style="padding: 0;">
-        <ul class="primary condense menu-bar">
-          <li><a><strong>Foundation for Apps</strong></a></li>
-        </ul>
+        <div class="menu-group">
+          <div class="menu-group-left">
+            <ul class="condense menu-bar">
+              <li>
+                <a ui-sref="home"><strong>ONLINE STORE RATER</strong></a>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-group-left">
+            <span class="menu-bar inline-label">
+              <input placeholder="Search" type="search">
+              <select name="" id="">
+                <option value="">Everything</option>
+                <option value="">Stores Only</option>
+                <option value="">Friends Only</option>
+              </select>
+              <a href="#" class="hollow button">
+                <img zf-iconic icon="magnifying-glass" size="small"
+                   class="iconic-color-secondary">
+              </a>
+            </span>
+          </div>
+          <div class="menu-group-right">
+            <ul class="menu-bar">
+              <li>
+                <a ui-sref="user page">
+                  My Account
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div ui-view class="grid-content">
+      <div class="grid-block">
+        <div id="sidebar" class="shrink grid-content">
+          <ul>
+            <li>
+              <a ui-sref="write review">
+                <img zf-iconic icon="comment-square" size="small"
+                     class="iconic-color-dark">
+                Write a Review
+              </a>
+            </li>
+            <li>
+              <a ui-sref="list my reviews">
+                <img zf-iconic icon="document" size="small"
+                     class="iconic-color-dark">
+                Your Reviews
+              </a>
+            </li>
+            <li class="category-header">
+              Sort
+            </li>
+            <li>
+              <a>
+                <img zf-iconic icon="person" size="small"
+                     class="iconic-color-dark">
+                Most Reviewed
+              </a>
+            </li>
+            <li>
+              <a>
+                <img zf-iconic icon="thumb" size="small"
+                     class="iconic-color-dark">
+                Highest Rated
+              </a>
+            </li>
+            <li class="category-header">
+              Filter
+            </li>
+            <li>
+              <a>
+                Clothing
+              </a>
+            </li>
+            <li>
+              <a>
+                Food
+              </a>
+            </li>
+            <li>
+              <a>
+                Technology
+              </a>
+            </li>
+            <li>
+              <a>
+                Jewellery
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div ui-view class="grid-content"></div>
       </div>
     </div>
   </body>
