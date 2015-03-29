@@ -38,6 +38,9 @@ var paths = {
     'bower_components/foundation-apps/js/angular/**/*.js',
     '!bower_components/foundation-apps/js/angular/app.js'
   ],
+  holderJS: [
+    'bower_components/holderjs/holder.min.js'
+  ],
   // These files are for your app's JavaScript
   appJS: [
     'client/assets/js/app.js'
@@ -54,6 +57,9 @@ gulp.task('clean', function(cb) {
 
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
+  gulp.src(paths.holderJS)
+    .pipe(gulp.dest('./build/assets/js'));
+
   return gulp.src(paths.assets, {
     base: './client/'
   })

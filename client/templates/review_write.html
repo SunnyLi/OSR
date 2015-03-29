@@ -2,9 +2,51 @@
 name: write review
 parent: reviews
 url: /create
+animationIn: fadeIn
 ---
 
 <div class="grid-container">
-  <h1>Write Reviews</h1>
-  <p class="lead">Say something.</p>
+  <div class="card">
+    <div class="card-section" ng-init="review = vars.reviews[params.id - 1]">
+      <h3 class="card-title">Review Creator</h3>
+      <div>
+        <div class="small-12 medium-6 grid-content">
+          <label>
+            Shop Site:
+            <span class="inline-label">
+              <span class="form-label">http://</span>
+              <input type="text" placeholder="example.com">
+            </span>
+          </label>
+        </div>
+        <div class="grid-block">
+          <div class="grid-content medium-3">Overall Service</div>
+          <div class="grid-content medium-3">Communication</div>
+          <div class="grid-content medium-3">Arrival Time</div>
+          <div class="grid-content medium-3">Safety</div>
+        </div>
+        <div class="grid-block">
+          <div class="grid-content medium-3" ng-repeat="blah in [1, 2, 3, 4]">
+            <span ng-repeat="star in [1, 2, 3, 4, 5] track by $index">
+              <img zf-iconic icon="star" size="small" class="iconic-color-secondary">
+            </span>
+          </div>
+        </div>
+        <br>
+        <div class="grid-content">
+          <textarea rows="10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet venenatis neque. Maecenas euismod vitae lectus ac ultricies. Donec congue blandit leo, id suscipit turpis interdum quis. Integer volutpat pellentesque vestibulum. Praesent risus enim, sodales et lectus nec, semper aliquam lacus. Fusce eu diam a nisi fermentum tempus. Morbi dui nulla, blandit eget purus eu, ultricies porttitor ipsum. Aliquam diam arcu, finibus ac nunc ac, tristique suscipit arcu. Ut in finibus justo. Mauris sit amet egestas odio, rhoncus dictum arcu. Quisque tristique purus nulla, vel lacinia nunc consectetur quis. In sollicitudin auctor massa quis aliquet. Pellentesque quis est neque.
+          </textarea>
+        </div>
+        <div class="grid-block align-right">
+          <div class="grid-content shrink">
+            <a href="#" class="button" zf-open="submit-notify">Submit</a>
+          </div>
+        </div>
+        <zf-notification-static id="submit-notify" title="Review added" autoclose="3000">
+          <p>Thanks you for your time.</p>
+        </zf-notification-static>
+      </div>
+    </div>
+  </div>
 </div>

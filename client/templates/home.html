@@ -28,12 +28,12 @@ stores:
 <div class="grid-container home">
   <div class="card">
     <div class="card-section">
-      <h4 id="most-viewed">Most Viewed</h4><hr>
+      <h4 id="recently-reviewed">Recently Reviewed</h4><hr>
     </div>
     <div class="card-section" ng-repeat="store in vars.stores">
       <div class="store grid-block">
         <div class="grid-content medium-9">
-          <a href="/#!/reviews/detail/{{$index + 1}}">
+          <a ui-sref="store info ({ id: $index + 1 })">
             <h3 class="store-name">{{ store.name }}</h3>
           </a>
           <span class="label round-corner website-url">{{ store.url }}</span>

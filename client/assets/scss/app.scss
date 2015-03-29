@@ -62,12 +62,34 @@ body > .grid-frame > .grid-block {
 }
 
 .home {
-  #most-viewed {
+  #recently-reviewed {
     color: green;
     font-weight: 600;
   }
   
   .stars-grid {
     padding-top: 3em;
+  }
+}
+
+.card-title {
+  color: green; !important
+  font-weight: 600;
+}
+
+.store-info {
+  .ratings {
+    line-height: 2em;
+
+    & > .title {
+      color: gray;
+    }
+  }
+
+  .reviews {
+    .meta {
+      line-height: 1.5em;
+      margin-bottom: 1em;
+    }
   }
 }

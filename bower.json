@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-apps": "~1.1.0"
+    "foundation-apps": "~1.1.0",
+    "holderjs": "~2.5.2"
   }
 }
