@@ -1,0 +1,34 @@
+
+<div class="grid-container home">
+  <div class="card">
+    <div class="card-section">
+      <h4 id="recently-reviewed">Recently Reviewed</h4><hr>
+    </div>
+    <div class="card-section" ng-repeat="store in vars.stores">
+      <div class="store grid-block">
+        <div class="grid-content medium-9">
+          <a ui-sref="store info ({ id: $index + 1 })">
+            <h3 class="store-name">{{ store.name }}</h3>
+          </a>
+          <span class="label round-corner website-url">{{ store.url }}</span>
+          <br><br>
+          <p>{{ store.description }}</p>
+          <span class="label round-corner tag" ng-repeat="tag in store.tags">
+            <a>#{{ tag }}</a>
+          </span>
+          <br><br>
+          <cite>{{ store.reviews.friend }} friends reviewed this site</cite>
+        </div>
+        <div class="grid-block medium-3 stars-grid">
+          <div ng-repeat="star in store.stars track by $index">
+            <img zf-iconic icon="star" size="medium"
+                 ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
+            >
+          </div>
+          Based on {{ store.reviews.all }} reviews.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
