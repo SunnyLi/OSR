@@ -1,5 +1,57 @@
 
 <div class="grid-container">
-  <h1>Your reviews</h1>
-  <p class="lead">We are not able to find your reviews.. sorry.</p>
+  <div class="card">
+    <div class="card-section">
+      <h3 class="card-title" style="display: inline-block">Your reviews</h3>
+      <div ng-repeat="review in reviews | filter:user.name ">
+        <hr>
+        <div class="grid-block align-justify">
+          <div class="grid-content">Reviewer: {{ review.reviewer.name }}</div>
+          <div class="grid-content shrink">Review Date: {{ review.date | date:'medium' }}</div>
+        </div><br>
+        <div class="grid-block">
+          <div class="grid-content medium-3">Overall Service</div>
+          <div class="grid-content medium-3">Communication</div>
+          <div class="grid-content medium-3">Arrival Time</div>
+          <div class="grid-content medium-3">Safety</div>
+        </div>
+        <div class="grid-block">
+          <div class="grid-content medium-3">
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
+          </div>
+          <div class="grid-content medium-3">
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.communication ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
+          </div>
+          <div class="grid-content medium-3">
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.delivery ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
+          </div>
+          <div class="grid-content medium-3">
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.safety ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
+          </div>
+        </div>
+        <br>
+        <div class="grid-content">
+          <p>{{ review.text }}</p>
+        </div>
+        <div class="grid-block align-justify">
+          <div class="grid-content">
+            <cite>{{ review.helpfulness.agree }} out of {{ review.helpfulness.total }}
+              people has found this review to be helpful.</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

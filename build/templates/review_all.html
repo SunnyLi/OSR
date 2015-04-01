@@ -1,12 +1,12 @@
 
 <div class="grid-container">
   <div class="card">
-    <div class="card-section" ng-init="store = vars.stores[params.id - 1]">
+    <div class="card-section" ng-init="store = stores_info[params.id - 1]">
       <a ui-sref="store info ({ id: params.id })">
         <h3 class="card-title" style="display: inline-block">{{ store.name }}</h3>
       </a>
       <div class="label round-corner website-url">{{ store.url }}</div>
-      <div ng-repeat="review in vars.reviews">
+      <div ng-repeat="review in reviews">
         <hr>
         <div class="grid-block align-justify">
           <div class="grid-content">Reviewer: {{ review.reviewer.name }}</div>
@@ -20,39 +20,33 @@
         </div>
         <div class="grid-block">
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.overall track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.communication track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.communication ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.delivery track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.delivery ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.safety track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.safety ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
         </div>
         <br>
         <div class="grid-content">
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet venenatis neque. Maecenas euismod vitae lectus ac ultricies. Donec congue blandit leo, id suscipit turpis interdum quis. Integer volutpat pellentesque vestibulum. Praesent risus enim, sodales et lectus nec, semper aliquam lacus. Fusce eu diam a nisi fermentum tempus. Morbi dui nulla, blandit eget purus eu, ultricies porttitor ipsum. Aliquam diam arcu, finibus ac nunc ac, tristique suscipit arcu. Ut in finibus justo. Mauris sit amet egestas odio, rhoncus dictum arcu. Quisque tristique purus nulla, vel lacinia nunc consectetur quis. In sollicitudin auctor massa quis aliquet. Pellentesque quis est neque.
-          </p>
+          <p>{{ review.text }}</p>
         </div>
         <div class="grid-block align-justify">
           <div class="grid-content">

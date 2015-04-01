@@ -3,68 +3,16 @@ name: show review
 parent: reviews
 url: /detail/:id
 animationIn: fadeIn
-stores:
-  - {name: "Best Store", url: "www.beststore.example"}
-  - {name: "Future Buy", url: "futurebuy.example"}
-  - {name: "iBay", url: "ibay.example"}
-  - {name: "Pear", url: "pear.example"}
-  - {name: "Home Repo", url: "homerepo.example"}
-reviews:
-  - {
-      reviewer: {id: 1, name: Bob},
-      date: 1328388888006,
-      rating: {
-        overall: [true, true, true, true, false],
-        communication: [true, true, true, true, false],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, true, false]
-      },
-      helpfulness: {agree: 12, total: 15}
-    }
-  - {
-      reviewer: {id: 2, name: Kat},
-      date: 1288323623006,
-      rating: {
-        overall: [true, true, true, false, false],
-        communication: [true, true, true, false, false],
-        delivery: [true, true, false, false, false],
-        safety: [true, true, true, false, false]
-      },
-      helpfulness: {agree: 10, total: 13}
-    }
-  - {
-      reviewer: {id: 3, name: Sunny},
-      date: 1388323623006,
-      rating: {
-        overall: [true, true, true, true, true],
-        communication: [true, true, true, true, true],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, true, false]
-      },
-      helpfulness: {agree: 11, total: 15}
-    }
-  - {
-      reviewer: {id: 4, name: Billy},
-      date: 1388323623006,
-      rating: {
-        overall: [true, true, true, true, false],
-        communication: [true, true, true, true, true],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, false, false]
-      },
-      helpfulness: {agree: 3, total: 5}
-    }
 ---
 
 <div class="grid-container">
   <div class="card">
-    <div class="card-section" ng-init="review = vars.reviews[params.id - 1]">
+    <div class="card-section" ng-init="review = reviews[params.id - 1]">
       <a href="#" onclick="document.location='/#!/store/info/' + (Math.floor(Math.random()*6) + 1)">
-        <h3 class="card-title">Review for store</h3>
+        <h3 class="card-title">A review written by {{ review.reviewer.name }}</h3>
       </a>
       <div>
-        <div class="grid-block align-justify">
-          <div class="grid-content">Reviewer: {{ review.reviewer.name }}</div>
+        <div class="grid-block">
           <div class="grid-content shrink">Review Date: {{ review.date | date:'medium' }}</div>
         </div><br>
         <div class="grid-block">
@@ -75,39 +23,33 @@ reviews:
         </div>
         <div class="grid-block">
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.overall track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.communication track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.communication ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.delivery track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.delivery ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
           <div class="grid-content medium-3">
-            <span ng-repeat="star in review.rating.safety track by $index">
-              <img zf-iconic icon="star" size="small"
-                   ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-              >
-            </span>
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < review.rating.safety ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
+                </span>
           </div>
         </div>
         <br>
         <div class="grid-content">
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet venenatis neque. Maecenas euismod vitae lectus ac ultricies. Donec congue blandit leo, id suscipit turpis interdum quis. Integer volutpat pellentesque vestibulum. Praesent risus enim, sodales et lectus nec, semper aliquam lacus. Fusce eu diam a nisi fermentum tempus. Morbi dui nulla, blandit eget purus eu, ultricies porttitor ipsum. Aliquam diam arcu, finibus ac nunc ac, tristique suscipit arcu. Ut in finibus justo. Mauris sit amet egestas odio, rhoncus dictum arcu. Quisque tristique purus nulla, vel lacinia nunc consectetur quis. In sollicitudin auctor massa quis aliquet. Pellentesque quis est neque.
-          </p>
+          <p>{{ review.text }}</p>
         </div>
         <div class="grid-block align-center">
           <div class="grid-content shrink">

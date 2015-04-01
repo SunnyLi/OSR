@@ -3,62 +3,11 @@ name: store info
 parent: stores
 url: /info/:id
 animationIn: fadeIn
-stores:
-  - {name: "Best Store", url: "www.beststore.example",
-      description: "Large electronics store in Canada. Thank you for being a friend.
-Travelled down the road and back again. Your heart is true you're a pal and a confidant.
-Come and knock on our door. We've been waiting for you. Three's company too.",
-      tags: ["electronics", "battery", "gift cards"],
-      stars: {
-        overall: [true, true, true, true, false],
-        communication: [true, true, true, false, false],
-        delivery: [true, true, true, true, true],
-        safety: [true, true, true, true, false]}
-    }
-  - {name: "Future Buy", url: "futurebuy.example",
-      description: "electronics chain that was founded in Canada, now absorbed into Best Store..",
-      tags: ["electronics", "gift cards"],
-      stars: {
-        overall: [true, true, true, true, true],
-        communication: [true, true, true, true, false],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, true, true]}
-    }
-  - {name: "iBay", url: "ibay.example",
-      description: "massive online bidding site",
-      tags: ["shoes", "game console", "laptop", "smartphones", "bitcoin"],
-      stars: {
-        overall: [true, true, true, false, false],
-        communication: [true, true, true, false, false],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, false, false, false]}
-    }
-  - {name: "Pear", url: "pear.example",
-      description: "Believe it or not I'm walking on air. I never thought I could feel so free.
-Flying away on a wing and a prayer. Who could it be? Believe it or not its just me.
-Believe it or not I'm walking on air. I never thought I could feel so free.
-Flying away on a wing and a prayer.",
-      tags: ["student discounts", "quality"],
-      stars: {
-        overall: [true, true, true, true, true],
-        communication: [true, true, true, true, true],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, true, true]}
-    }
-  - {name: "Home Repo", url: "homerepo.example",
-      description: "Plants and refrigerators",
-      tags: ["plant", "stove", "refrigerator"],
-      stars: {
-        overall: [true, true, true, true, false],
-        communication: [true, true, true, true, false],
-        delivery: [true, true, true, true, false],
-        safety: [true, true, true, true, false]}
-    }
 ---
 
 <div class="grid-container">
   <div class="card">
-    <div class="card-section store-info" ng-init="store = vars.stores[params.id - 1]">
+    <div class="card-section store-info" ng-init="store = stores_info[params.id - 1]">
       <h3 class="card-title" style="display: inline-block">{{ store.name }}</h3>
       <div class="label round-corner website-url">{{ store.url }}</div>
       <div class="grid-block">
@@ -82,10 +31,9 @@ Flying away on a wing and a prayer.",
                 Overall:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.overall track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -94,10 +42,9 @@ Flying away on a wing and a prayer.",
                 Communication:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.communication track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.communication ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -106,10 +53,9 @@ Flying away on a wing and a prayer.",
                 Arrival Time:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.delivery track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.delivery ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -118,10 +64,9 @@ Flying away on a wing and a prayer.",
                 Safety:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.safety track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.safety ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>

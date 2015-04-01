@@ -1,7 +1,7 @@
 
 <div class="grid-container">
   <div class="card">
-    <div class="card-section store-info" ng-init="store = vars.stores[params.id - 1]">
+    <div class="card-section store-info" ng-init="store = stores_info[params.id - 1]">
       <h3 class="card-title" style="display: inline-block">{{ store.name }}</h3>
       <div class="label round-corner website-url">{{ store.url }}</div>
       <div class="grid-block">
@@ -25,10 +25,9 @@
                 Overall:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.overall track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -37,10 +36,9 @@
                 Communication:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.communication track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.communication ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -49,10 +47,9 @@
                 Arrival Time:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.delivery track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.delivery ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>
@@ -61,10 +58,9 @@
                 Safety:
               </div>
               <div class="grid-content">
-                <span ng-repeat="star in store.stars.safety track by $index">
-                  <img zf-iconic icon="star" size="small"
-                       ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-                  >
+                <span ng-repeat="n in range(5) track by $index"
+                      ng-class="$index < store.stars.safety ? 'iconic-color-warning' : 'iconic-color-secondary'">
+                  <img zf-iconic icon="star" size="small">
                 </span>
               </div>
             </div>

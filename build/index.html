@@ -12,13 +12,15 @@
     <script src="./assets/js/app.js"></script>
   </head>
   <body>
-    <div class="grid-frame vertical">
+    <div class="grid-frame vertical" ng-controller="MainController">
       <div class="grid-content shrink" style="padding: 0;">
         <div class="menu-group">
           <div class="menu-group-left">
             <ul class="condense menu-bar">
               <li>
-                <a ui-sref="home"><strong>ONLINE STORE RATER</strong></a>
+                <a ui-sref="home" ng-click="set_store_order(0)">
+                  <strong>ONLINE STORE RATER</strong>
+                </a>
               </li>
             </ul>
           </div>
@@ -68,14 +70,14 @@
               Sort
             </li>
             <li>
-              <a ui-sref="home">
+              <a ui-sref="home" ng-click="set_store_order(1)">
                 <img zf-iconic icon="person" size="small"
                      class="iconic-color-dark">
                 Most Reviewed
               </a>
             </li>
             <li>
-              <a ui-sref="home">
+              <a ui-sref="home" ng-click="set_store_order(2)">
                 <img zf-iconic icon="thumb" size="small"
                      class="iconic-color-dark">
                 Highest Rated

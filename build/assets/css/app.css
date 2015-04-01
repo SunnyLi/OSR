@@ -6187,6 +6187,8 @@ body > .grid-frame > .grid-block {
 .home #recently-reviewed {
   color: green;
   font-weight: 600; }
+.home hr {
+  margin-bottom: -1em; }
 .home .stars-grid {
   padding-top: 3em; }
 

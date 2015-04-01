@@ -2,38 +2,18 @@
 name: home
 url: /
 animationIn: fadeIn
-stores:
-  - {name: "Best Store", url: "www.beststore.example",
-      description: "large electronics store in Canada",
-      tags: ["electronics", "battery", "gift cards"],
-      stars: [true, true, true, true, false], reviews: {all: 64, friend: 9}}
-  - {name: "Future Buy", url: "futurebuy.example",
-      description: "electronics store originally founded in Canada, now absorbed into Best Store..",
-      tags: ["electronics", "gift cards"],
-      stars: [true, true, true, true, true], reviews: {all: 88, friend: 12}}
-  - {name: "iBay", url: "ibay.example",
-      description: "massive online bidding site",
-      tags: ["shoes", "game console", "laptop", "smartphones", "bitcoin"],
-      stars: [true, true, true, false, false], reviews: {all: 123, friend: 5}}
-  - {name: "Pear", url: "pear.example",
-      description: "Sells iPwn and Pear OS X",
-      tags: ["student discounts", "quality", "expensive"],
-      stars: [true, true, true, true, true], reviews: {all: 21, friend: 3}}
-  - {name: "Home Repo", url: "homerepo.example",
-      description: "Plants and refrigerators",
-      tags: ["plant", "stove", "refrigerator"],
-      stars: [true, true, true, true, false], reviews: {all: 30, friend: 2}}
+controller: MainController
 ---
 
 <div class="grid-container home">
   <div class="card">
     <div class="card-section">
-      <h4 id="recently-reviewed">Recently Reviewed</h4><hr>
+      <h4 id="recently-reviewed">Popular Stores</h4><hr>
     </div>
-    <div class="card-section" ng-repeat="store in vars.stores">
-      <div class="store grid-block">
-        <div class="grid-content medium-9">
-          <a ui-sref="store info ({ id: $index + 1 })">
+    <div class="card-section" ng-repeat="store in stores_info | orderBy:store_order.key:store_order.reverse">
+      <div class="grid-block align-justify">
+        <div class="grid-content medium-8">
+          <a ui-sref="store info ({ id: store.id })">
             <h3 class="store-name">{{ store.name }}</h3>
           </a>
           <span class="label round-corner website-url">{{ store.url }}</span>
@@ -43,15 +23,14 @@ stores:
             <a>#{{ tag }}</a>
           </span>
           <br><br>
-          <cite>{{ store.reviews.friend }} friends reviewed this site</cite>
+          <cite>{{ store.reviews.friends }} friends reviewed this site</cite>
         </div>
         <div class="grid-block medium-3 stars-grid">
-          <div ng-repeat="star in store.stars track by $index">
-            <img zf-iconic icon="star" size="medium"
-                 ng-class="star ? 'iconic-color-warning' : 'iconic-color-secondary'"
-            >
+          <div ng-repeat="n in range(5) track by $index"
+               ng-class="$index < store.stars.overall ? 'iconic-color-warning' : 'iconic-color-secondary'">
+            <img zf-iconic icon="star" size="medium">
           </div>
-          Based on {{ store.reviews.all }} reviews.
+          Based on {{ store.reviews.total }} reviews.
         </div>
       </div>
     </div>
