@@ -67,13 +67,17 @@ body > .grid-frame > .grid-block {
     font-weight: 600;
   }
   
+  hr {
+    margin-bottom: -1em;
+  }
+  
   .stars-grid {
     padding-top: 3em;
   }
 }
 
 .card-title {
-  color: green; !important
+  color: green !important;
   font-weight: 600;
 }
 

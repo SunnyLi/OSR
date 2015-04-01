@@ -7,9 +7,9 @@ animationIn: fadeIn
 
 <div class="grid-container">
   <div class="card">
-    <div class="card-section" ng-init="review = vars.reviews[params.id - 1]">
+    <div class="card-section">
       <h3 class="card-title">Review Creator</h3>
-      <div>
+      <div ng-controller="MainController as main">
         <div class="small-12 medium-6 grid-content">
           <label>
             Shop Site:
@@ -34,13 +34,11 @@ animationIn: fadeIn
         </div>
         <br>
         <div class="grid-content">
-          <textarea rows="10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet venenatis neque. Maecenas euismod vitae lectus ac ultricies. Donec congue blandit leo, id suscipit turpis interdum quis. Integer volutpat pellentesque vestibulum. Praesent risus enim, sodales et lectus nec, semper aliquam lacus. Fusce eu diam a nisi fermentum tempus. Morbi dui nulla, blandit eget purus eu, ultricies porttitor ipsum. Aliquam diam arcu, finibus ac nunc ac, tristique suscipit arcu. Ut in finibus justo. Mauris sit amet egestas odio, rhoncus dictum arcu. Quisque tristique purus nulla, vel lacinia nunc consectetur quis. In sollicitudin auctor massa quis aliquet. Pellentesque quis est neque.
-          </textarea>
+          <textarea rows="10" ng-model="main.new_review_text"></textarea>
         </div>
         <div class="grid-block align-right">
           <div class="grid-content shrink">
-            <a href="#" class="button" zf-open="submit-notify">Submit</a>
+            <a href="#" class="button" ng-click="main.add_review()" zf-open="submit-notify">Submit</a>
           </div>
         </div>
         <zf-notification-static id="submit-notify" title="Review added" autoclose="3000">
